@@ -8,8 +8,6 @@ import Lyrics from "./components/tracks/Lyrics";
 import { Provider } from "./context";
 
 class App extends Component {
-  state = {};
-
   render() {
     return (
       <Provider>

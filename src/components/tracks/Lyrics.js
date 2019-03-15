@@ -3,8 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 
-const key = "2bf367a61049128161620d87efbdb682";
-
 class Lyrics extends Component {
   state = {
     track: {},
@@ -16,7 +14,7 @@ class Lyrics extends Component {
       .get(
         `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${
           this.props.match.params.id
-        }&apikey=${key}`
+        }&apikey=${process.env.REACT_APP_KEY}`
       )
       .then(res => {
         console.log(res);
@@ -25,7 +23,7 @@ class Lyrics extends Component {
         return axios.get(
           `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.get?track_id=${
             this.props.match.params.id
-          }&apikey=${key}`
+          }&apikey=${process.env.REACT_APP_KEY}`
         );
       })
       .then(res => {
